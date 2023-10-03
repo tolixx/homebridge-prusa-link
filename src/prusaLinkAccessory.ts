@@ -45,8 +45,12 @@ export class PrusaLinkAccessory {
         },
       });
       const body = await response.json();
+      this.log.info ( "response got")
       state = body.state;
+      this.log.info ( "State : ${state}");
+
       completion = body.progress?.completion ?? 1;
+      this.log.info (" B: {body}");
 
     } catch (e) {
       // do nothing -> standard values will be set
